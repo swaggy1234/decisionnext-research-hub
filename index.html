@@ -5266,24 +5266,24 @@ function render({ model, el }) {
   jackFallback.appendChild(trackMae);
   jackFallback.appendChild(trackPlot);
 
-  const amsNote = h("p", "dn-callout");
   if (explorer && jackApi && typeof jackApi.render === "function") {
-    amsNote.textContent =
-      "Jack's explorer below: target picker, multi-model overlay, origin slider, Forecast / Track record. LinearPrice is included alongside the live model cards.";
     jackMount.hidden = false;
     jackFallback.hidden = true;
   } else if (explorer && !jackApi) {
+    const amsNote = h("p", "dn-callout");
     amsNote.textContent =
       "Explorer data is present but Jack's target_forecasts.js did not load. Re-export the HTML or re-open the Jupyter hub.";
+    priceCard.insertBefore(amsNote, jackMount);
     jackMount.hidden = true;
     jackFallback.hidden = false;
   } else {
+    const amsNote = h("p", "dn-callout");
     amsNote.textContent =
       "AMS target tables are not available (target_series missing). Showing LinearPrice from models/linear_price_*/forecasts.parquet. Rebuild with: python -m src.transform.ams_target_series";
+    priceCard.insertBefore(amsNote, jackMount);
     jackMount.hidden = true;
     jackFallback.hidden = false;
   }
-  priceCard.insertBefore(amsNote, priceCard.children[2]);
   price.appendChild(priceCard);
   body.appendChild(price);
 
