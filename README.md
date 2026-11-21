@@ -1,3 +1,7 @@
-# DecisionNext Potato Prophets research hub
+# Moved
 
-Standalone internal research dashboard (Price Forecast Lab, Yield, Methods).
+The DecisionNext research hub now lives in the private team repo:
+
+https://github.com/KhourySpecialProjects/DecisionNextProject
+
+See `notebooks/dashboard/` and `docs/slide_artifacts/DecisionNext_Research_Hub.html`.
